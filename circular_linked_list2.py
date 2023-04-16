@@ -1,3 +1,4 @@
+
 class Node:
     def __init__(self, value, next=None):
         self.value = value
@@ -6,6 +7,7 @@ class Node:
     def __str__(self) -> str:
         return f"{self.value}"
 
+
 '''
 It uses two pointers slow and fast
 slow incremented 1 step 
@@ -13,26 +15,30 @@ fast incremented 2 steps in each iteration
 '''
 
 # By using recursion
+
+
 def is_circular_list(slow, fast):
     if slow and fast:
-        if(slow == fast): return True
+        if (slow == fast):
+            return True
         if fast.next:
             return is_circular_list(slow.next, fast.next.next)
-    
+
     return False
+
 
 def is_circular_list2(node):
     slow = node
     fast = node.next
 
     while fast and slow:
-        if fast == slow: return True
+        if fast == slow:
+            return True
         if fast.next:
-            slow = slow.next # incremented 1 step
-            fast = fast.next.next # incremented 2 steps
+            slow = slow.next  # incremented 1 step
+            fast = fast.next.next  # incremented 2 steps
 
     return False
-
 
 
 # Test data
